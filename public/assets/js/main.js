@@ -32,22 +32,36 @@ $.when(
   socket.on('Environment-update', (data)=>{
     obj_data = JSON.parse(data);
     socket.emit('Get-data');
-    if (obj_data.status == 1)
-      num_warning++;
-    else if (obj_data.status == 2) 
-      num_danger++;
-    else {
-      num_danger = (num_danger == 0) ? 0 : (num_danger - 1);
-      num_warning = (num_warning == 0) ? 0 : (num_warning - 1);
-    }
-    if (num_danger == 2) {
+    // if (obj_data.status == 1){
+    //   num_warning++;
+    //   num_danger = (num_danger == 0) ? 0 : (num_danger - 1);
+    // }
+    // else if (obj_data.status == 2) 
+    //   num_danger++;
+    // else {
+    //   num_danger = (num_danger == 0) ? 0 : (num_danger - 1);
+    //   num_warning = (num_warning == 0) ? 0 : (num_warning - 1);
+    // }
+    // if (num_danger == 2) {
+    //   $("#status-btn").removeClass("btn-primary").removeClass("btn-warning").addClass("btn-danger");
+    //   statusButton.textContent = "Fire!!!";
+    //   socket.emit("Signal-fire")
+    // } else if (num_warning > 0 && num_danger == 0){
+    //   $("#status-btn").removeClass("btn-primary").removeClass("btn-danger").addClass("btn-warning");
+    //   statusButton.textContent = "Warning";
+    // } else if (num_danger == 1){
+    //   $("#status-btn").removeClass("btn-warning").removeClass("btn-danger").addClass("btn-primary");
+    //   statusButton.textContent = "Normal";
+    //   socket.emit("Signal-normal")
+    // }
+    if (obj_data.status == 2) {
       $("#status-btn").removeClass("btn-primary").removeClass("btn-warning").addClass("btn-danger");
       statusButton.textContent = "Fire!!!";
       socket.emit("Signal-fire")
-    } else if (num_warning > 0 && num_danger == 0){
+    } else if (obj_data.status == 1){
       $("#status-btn").removeClass("btn-primary").removeClass("btn-danger").addClass("btn-warning");
       statusButton.textContent = "Warning";
-    } else if (num_danger == 1){
+    } else if (obj_data.status == 0){
       $("#status-btn").removeClass("btn-warning").removeClass("btn-danger").addClass("btn-primary");
       statusButton.textContent = "Normal";
       socket.emit("Signal-normal")
