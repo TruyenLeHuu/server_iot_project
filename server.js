@@ -45,7 +45,7 @@ mongoose
   //InitRole()
   appPort = config.port;
 	appHost = config.host;
-	server.listen(appPort, appHost, () => {
+	server.listen(appPort, () => {
 		console.log(`Server listening at host ${appHost} port ${appPort}`);
     });
 }).catch((err) => {

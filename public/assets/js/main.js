@@ -23,11 +23,11 @@ $.when(
   var num_danger = 0;
   var num_warning = 0;
 
-  // const connectionObject = {
-  //   withCredentials: true,
-  // };
-  // const socket = io("", connectionObject);
-  socket = io.connect('http://' + Socket_hostIP + ':' + Socket_port, { transports : ['websocket'] });
+  const connectionObject = {
+    withCredentials: true,
+  };
+  const socket = io("", connectionObject);
+  // socket = io.connect('http://' + Socket_hostIP + ':' + Socket_port, { transports : ['websocket'] });
   socket.emit('Get-data');
   socket.on('Environment-update', (data)=>{
     obj_data = JSON.parse(data);
