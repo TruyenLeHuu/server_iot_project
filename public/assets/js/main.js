@@ -49,6 +49,7 @@ $.when(
     } else if (num_warning > 0){
       $("#status-btn").removeClass("btn-primary").removeClass("btn-danger").addClass("btn-warning");
       statusButton.textContent = "Warning";
+      socket.emit("Signal-normal")
     } else {
       $("#status-btn").removeClass("btn-warning").removeClass("btn-danger").addClass("btn-primary");
       statusButton.textContent = "Normal";

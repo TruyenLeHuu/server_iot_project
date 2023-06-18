@@ -52,7 +52,7 @@ module.exports = function (io) {
     });
     exports.sendFireSignal = function () {
         client.publish('controller/buzzer', "1", {qos: 1, retain: false});
-            
+
     }
     exports.sendNormalSignal = function () {
         client.publish('controller/buzzer', "0", {qos: 1, retain: false});
