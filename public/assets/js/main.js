@@ -31,9 +31,9 @@ $.when(
     $("#status-btn").removeClass("btn-primary").addClass("btn-warning");
     statusButton.textContent = "Warning";
     // console.info(data)
-    tempValue.textContent = data[0].temp + "°C";
-    humValue.textContent = data[0].hum + "%";
-    smokeValue.textContent = data[0].smoke + "mA";
+    tempValue.textContent = data[0].temp.toFixed(2) + "°C";
+    humValue.textContent = data[0].hum.toFixed(2) + "%";
+    smokeValue.textContent = data[0].smoke.toFixed(2) + "mA";
     data.forEach((env, index) => {
       temperatureData[index] = env.temp;
       humidityData[index] = env.hum;
