@@ -41,11 +41,11 @@ require('./helpers/socket-io')(io, mqtt);
 mongoose
 .connect(URI, {useNewUrlParser:true, useUnifiedTopology:true})
 .then(()=>{
-    console.log("Connected to db")
-    //InitRole()
-    appPort = config.port;
+  console.log("Connected to db")
+  //InitRole()
+  appPort = config.port;
 	appHost = config.host;
-	server.listen(appPort, () => {
+	server.listen(appPort, appHost, () => {
 		console.log(`Server listening at host ${appHost} port ${appPort}`);
     });
 }).catch((err) => {
