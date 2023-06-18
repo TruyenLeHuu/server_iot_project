@@ -42,14 +42,14 @@ $.when(
       num_danger = (num_danger == 0) ? 0 : (num_danger - 1);
       num_warning = (num_warning == 0) ? 0 : (num_warning - 1);
     }
-    if (num_danger == 2) {
+    if (num_danger > 0) {
       $("#status-btn").removeClass("btn-primary").removeClass("btn-warning").addClass("btn-danger");
       statusButton.textContent = "Fire!!!";
       socket.emit("Signal-fire")
-    } else if (num_warning > 0 && num_danger == 0){
+    } else if (num_warning > 0){
       $("#status-btn").removeClass("btn-primary").removeClass("btn-danger").addClass("btn-warning");
       statusButton.textContent = "Warning";
-    } else if (num_danger == 1){
+    } else {
       $("#status-btn").removeClass("btn-warning").removeClass("btn-danger").addClass("btn-primary");
       statusButton.textContent = "Normal";
       socket.emit("Signal-normal")
