@@ -54,7 +54,7 @@ $.when(
       statusButton.textContent = "Normal";
       socket.emit("Signal-normal")
     }
-    // console.log(num_warning + " " + num_danger)
+    console.log(num_warning + " " + num_danger)
     })
   socket.on('Send-data', (data)=>{
     
